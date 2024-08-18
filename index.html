@@ -19,6 +19,9 @@
     </style>
 </head>
 <body>
-    <p>Today's date is <script>document.write(new Date().toLocaleDateString());</script>.</p>
+    <p>Today's date is <script>
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        document.write(new Date().toLocaleDateString('en-GB', options));
+    </script>, East Melbourne</p>
 </body>
 </html>
