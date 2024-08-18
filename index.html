@@ -15,11 +15,12 @@
             margin: 20px;
             font-size: 13px;
             line-height: 1.6;
+            background-color: #f5f5f5
         }
     </style>
 </head>
 <body>
-    <p>Today's date is <script>
+    <p><script>
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
         document.write(new Date().toLocaleDateString('en-GB', options));
     </script>, East Melbourne</p>
