@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: 'IBMPlexMono';
+            src: url('fonts/IBMPlexMono-Regular.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'IBMPlexMono', monospace;
+            margin: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
+    <p>Today's date is <script>document.write(new Date().toLocaleDateString());</script>.</p>
 </body>
 </html>
