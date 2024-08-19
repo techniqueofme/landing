@@ -15,18 +15,60 @@
             margin: 20px;
             font-size: 13px;
             line-height: 1.6;
-            background-color: ##ffffff
+            background-color: #ffffff;
         }
     </style>
 </head>
 <body>
-    <p><script>
-        const options = { day: 'numeric', month: 'long', year: 'numeric' };
-        document.write(new Date().toLocaleDateString('en-GB', options));
-    </script>, East Melbourne</p>
+    <p>
+        <script>
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            document.write(new Date().toLocaleDateString('en-GB', options));
+        </script>, East Melbourne
+    </p>
     <br>
     <p>[Build this out as time goes on]</p>
     <p>Command+L to search</p>
     <br><br>
+
+    <!-- Quote Section -->
+    <div id="quote-container">
+        <p id="quote"></p>
+        <p id="author"></p>
+    </div>
+
+    <script>
+        function getRandomQuote(quotes) {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        function displayQuote(quote) {
+            document.getElementById('quote').innerText = `"${quote.quote}"`;
+            document.getElementById('author').innerText = `- ${quote.author}`;
+        }
+
+        function loadQuotes() {
+            fetch('resources/quotes.csv')
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.split('\n').slice(1); // Skip header row
+                    const quotes = rows.map(row => {
+                        const [author, quote] = row.split(',');
+                        return { author: author.trim(), quote: quote.trim() };
+                    }).filter(quote => quote.author && quote.quote); // Filter out empty rows
+
+                    const randomQuote = getRandomQuote(quotes);
+                    displayQuote(randomQuote);
+                })
+                .catch(error => console.error('Error loading quotes:', error));
+        }
+
+        // Display a new quote every 12 hours (43200000 milliseconds)
+        setInterval(loadQuotes, 43200000);
+
+        // Load an initial quote
+        loadQuotes();
+    </script>
 </body>
 </html>
