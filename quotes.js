@@ -4,8 +4,8 @@ function getRandomQuote(quotes) {
 }
 
 function displayQuote(quote) {
-    document.getElementById('quote').innerText = `"${quote.quote}"`;
-    document.getElementById('author').innerText = `- ${quote.author}`;
+    // Combine the quote and author on the same line
+    document.getElementById('quote').innerText = `${quote.quote} - ${quote.author}`;
 }
 
 function loadQuotes() {
