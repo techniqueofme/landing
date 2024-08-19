@@ -44,8 +44,7 @@
         }
 
         function displayQuote(quote) {
-            document.getElementById('quote').innerText = `"${quote.quote}"`;
-            document.getElementById('author').innerText = `- ${quote.author}`;
+            document.getElementById('quote').innerText = `${quote.quote} - ${quote.author}`;
         }
 
         function loadQuotes() {
