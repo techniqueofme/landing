@@ -16,6 +16,25 @@
             font-size: 12px;
             line-height: 1.6;
             background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Column styles */
+        .column {
+            width: 30%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Content for the left column */
+        #left-column {
+            text-align: left;
+        }
+
+        /* Content for the right column */
+        #right-column {
+            text-align: left;
         }
 
         /* Center the quote container */
@@ -36,24 +55,38 @@
     </style>
 </head>
 <body>
-    <p>
-        <script>
-            const options = { day: 'numeric', month: 'long', year: 'numeric' };
-            document.write(new Date().toLocaleDateString('en-GB', options));
-        </script>, East Melbourne
-    </p>
-    <br>
-    <p>[Build this out as time goes on]</p>
-    <p>Command+L to search</p>
-    <br><br>
+    <div class="column" id="left-column">
+        <p>
+            <script>
+                const options = { day: 'numeric', month: 'long', year: 'numeric' };
+                document.write(new Date().toLocaleDateString('en-GB', options));
+            </script>, East Melbourne
+        </p>
+        <br>
+        <p>[Build this out as time goes on]</p>
+        <p>Command+L to search</p>
+        <br><br>
 
-    <!-- Quote Section -->
-    <div id="quote-container">
-        <p id="quote"></p>
-        <p id="author"></p>
+        <!-- Quote Section -->
+        <div id="quote-container">
+            <p id="quote"></p>
+            <p id="author"></p>
+        </div>
+
+        <!-- Link to external JavaScript file -->
+        <script src="quotes.js"></script>
     </div>
 
-    <!-- Link to external JavaScript file -->
-    <script src="quotes.js"></script>
+    <div class="column" id="right-column">
+        <p><b>Work Experience</b>b></p>
+        <p>Suburban Rail Loop Authority        2023 - 2024</p>
+        <p>Department of Treasury and Finance  2022 - 2023</p>
+        <p>Global Procurement Services</p>     2021
+        <p>Ralcron                             2019 - 2021</p>
+    </div>
+    
+    <div class="column">
+        <!-- This column is currently empty but could be used for additional content -->
+    </div>
 </body>
 </html>
